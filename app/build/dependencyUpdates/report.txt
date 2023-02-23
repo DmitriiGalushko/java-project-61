@@ -1,0 +1,17 @@
+
+------------------------------------------------------------
+: Project Dependency Updates (report to plain text file)
+------------------------------------------------------------
+
+The following dependencies are using the latest milestone version:
+ - se.patrikerdes.use-latest-versions:se.patrikerdes.use-latest-versions.gradle.plugin:0.2.18
+
+The following dependencies have later milestone versions:
+ - com.github.ben-manes.versions:com.github.ben-manes.versions.gradle.plugin [0.41.0 -> 0.46.0]
+ - org.junit.jupiter:junit-jupiter-api [5.8.1 -> 5.9.2]
+     https://junit.org/junit5/
+ - org.junit.jupiter:junit-jupiter-engine [5.8.1 -> 5.9.2]
+     https://junit.org/junit5/
+
+Gradle release-candidate updates:
+ - Gradle: [7.4.2 -> 8.0.1]
