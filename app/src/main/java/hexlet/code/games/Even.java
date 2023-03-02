@@ -1,8 +1,7 @@
-package hexlet.code;
-
-import java.util.Scanner;
+package hexlet.code.games;
 
 import java.util.Random;
+import java.util.Scanner;
 
 public class Even {
 
