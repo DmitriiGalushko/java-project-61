@@ -1,55 +1,40 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
 import java.util.Random;
 import java.util.Scanner;
 
-public class GCD {
-    private static final int CORRECT_ANSWERS = 3;
+public class GCD extends Engine {
     private static final int RANDOM_RANGE = 100;
-    public static void greatestCommonDivisor() {
-        Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Welcome to the Brain Games!");
-        System.out.print("May I have your name? ");
-        String userName = scanner.next();
-        System.out.println("Hello, " + userName + "!");
+    public GCD(String name) {
+        super(name);
+    }
 
+    public final void gameRules() {
         System.out.println("Find the greatest common divisor of given numbers.");
+    }
 
-        var sum = 0;
+    public final boolean gameRound() {
+        Random random = new Random();
+        var firstNumber = random.nextInt(RANDOM_RANGE) + 1;
+        var secondNumber = random.nextInt(RANDOM_RANGE) + 1;
+        System.out.println("Question: " + firstNumber + " "
+                + secondNumber);
+        Scanner scanner = new Scanner(System.in);
+        String userAnswer = scanner.next().trim().toLowerCase();
+        System.out.println("Your answer: "  + userAnswer);
+        return checkAnswer(userAnswer,  Integer.toString(getGcd(firstNumber, secondNumber)));
+    }
 
-        while (sum < CORRECT_ANSWERS) {
-            Random random = new Random();
-            var firstTerm = random.nextInt(RANDOM_RANGE) + 1;
-            var secondTerm = random.nextInt(RANDOM_RANGE) + 1;
-            var gcd = 1;
-
-            System.out.println("Question: " + firstTerm + " "
-                    + secondTerm);
-            String userAnswer = scanner.next();
-            System.out.println("Your answer: "  + userAnswer);
-
-            for (var i = 1; i <= firstTerm && i <= secondTerm; ++i) {
-                if (firstTerm % i == 0 && secondTerm % i == 0) {
-                    gcd = i;
-                }
-            }
-
-            if (Integer.toString(gcd).equals(userAnswer)) {
-                sum = sum + 1;
-                System.out.println("Correct!");
-                if (sum == CORRECT_ANSWERS) {
-                    System.out.println("Congratulations, " + userName + "!");
-                    System.exit(0);
-                }
-
+    private static int getGcd(int firstNumber, int secondNumber) {
+        while (firstNumber != 0 && secondNumber != 0) {
+            if (firstNumber > secondNumber) {
+                firstNumber %= secondNumber;
             } else {
-                System.out.println("'" + userAnswer + "'"
-                        + " is wrong answer ;(. Correct answer was " + "'" + gcd + "'."
-                        + "\n Let's try again, " + userName + "!");
-                System.exit(0);
+                secondNumber %= firstNumber;
             }
         }
-
+        return firstNumber + secondNumber;
     }
-}
+ }

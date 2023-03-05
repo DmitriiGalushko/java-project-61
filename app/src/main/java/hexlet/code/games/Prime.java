@@ -4,15 +4,15 @@ import hexlet.code.Engine;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Even extends Engine {
-    private static final int RANDOM_RANGE = 100;
+public class Prime extends Engine {
+    private static final int RANDOM_RANGE = 1000;
 
-    public Even(String name) {
+    public Prime(String name) {
         super(name);
     }
 
     public final void gameRules() {
-        System.out.println("Answer 'yes' if number is even, otherwise answer 'no'");
+        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
     }
 
     public final boolean gameRound() {
@@ -26,6 +26,15 @@ public class Even extends Engine {
     }
 
     private String getCorrectAnswer(final int number) {
-        return (number % 2 == 0) ? "yes" : "no";
+        return (isPrimeNumber(number)) ? "yes" : "no";
+    }
+
+    private boolean isPrimeNumber(int number) {
+        for (var i = 2; i < number; i++) {
+            if (number % i == 0) {
+                return false;
+            }
+        }
+        return true;
     }
 }
