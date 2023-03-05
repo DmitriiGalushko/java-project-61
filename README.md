@@ -1,6 +1,8 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/DmitriiGalushko/java-project-61/workflows/hexlet-check/badge.svg)](https://github.com/DmitriiGalushko/java-project-61/actions)
 
+<a href="https://codeclimate.com/github/DmitriiGalushko/java-project-61/maintainability"><img src="https://api.codeclimate.com/v1/badges/42a2fee304cb0134f0bc/maintainability" /></a>
+
 Example of the Even game running:
 https://asciinema.org/a/EepAZ8kp2dV1bNePPpyDuhTcK
 
