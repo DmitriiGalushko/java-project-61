@@ -1,51 +1,38 @@
 package hexlet.code;
 
-public abstract class Engine {
+import java.util.Scanner;
 
-    private static final int CORRECT_ANSWERS = 3;
+public class Engine {
 
-    private final String userName;
+    public static final int GAME_ROUNDS = 3;
 
-    private int correctAnswersCount = 0;
+    public static void engineGame(String[][] gameData, String gameRules) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("\nWelcome to the Brain Games!");
+        System.out.print("May I have your name? ");
+        String userName = scanner.next();
+        System.out.println("Hello, " + userName + "!");
+        System.out.println(gameRules);
 
-    public Engine(String name) {
-        this.userName = name;
-    }
+        for (String[] roundData : gameData) {
+            String question = roundData[0];
+            String answer = roundData[1];
 
-     public final void gameEngine() {
-        gameRules();
-        roundCheck();
-        gameEnd();
-    }
+            System.out.println("Question: " + question);
+            System.out.print("Your answer: ");
+            String userAnswer = scanner.next().trim().toLowerCase();
 
-    public abstract void gameRules();
+            if (!userAnswer.equals(answer)) {
+                System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '"
+                        + answer + "'.\n" + "Let's try again, " + userName + "!");
+                scanner.close();
+                return;
+            }
 
-    public abstract boolean gameRound();
-
-    private void roundCheck() {
-        while (correctAnswersCount < CORRECT_ANSWERS) {
-            boolean roundResult = gameRound();
-            if (!roundResult) {
-               break;
-           }
-       }
-   }
-
-    public final boolean checkAnswer(String userAnswer, String correctAnswer) {
-        if (userAnswer != null && userAnswer.equals(correctAnswer)) {
-            correctAnswersCount++;
             System.out.println("Correct!");
-            return true;
-        } else {
-            System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '"
-                    + correctAnswer + "'.\n" + "Let's try again, " + userName + "!");
-            return false;
         }
-    }
 
-    private void gameEnd() {
-        if (correctAnswersCount == CORRECT_ANSWERS) {
-            System.out.println("Congratulations, " + userName + "!");
-        }
+        System.out.println("Congratulations, " + userName + "!");
+        scanner.close();
     }
 }

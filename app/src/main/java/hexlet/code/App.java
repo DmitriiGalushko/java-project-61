@@ -26,11 +26,11 @@ public class App {
         switch (userChoice) {
             case "0" -> System.exit(0);
             case "1" -> Cli.greet();
-            case "2" -> new Even(Cli.greet()).gameEngine();
-            case "3" -> new Calc(Cli.greet()).gameEngine();
-            case "4" -> new GCD(Cli.greet()).gameEngine();
-            case "5" -> new Progression(Cli.greet()).gameEngine();
-            case "6" -> new Prime(Cli.greet()).gameEngine();
+            case "2" -> Even.startGame();
+            case "3" -> Calc.startGame();
+            case "4" -> GCD.startGame();
+            case "5" -> Progression.startGame();
+            case "6" -> Prime.startGame();
             default -> System.out.println("Wrong command! Please try again.");
         }
 
