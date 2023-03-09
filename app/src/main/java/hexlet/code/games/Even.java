@@ -22,10 +22,11 @@ public class Even extends Engine {
         System.out.print("Your answer: ");
         Scanner scanner = new Scanner(System.in);
         String userAnswer = scanner.next().trim().toLowerCase();
-        return checkAnswer(userAnswer, getCorrectAnswer(number));
+        String answer = isEven(number) ? "yes" : "no";
+        return checkAnswer(userAnswer, answer);
     }
 
-    private String getCorrectAnswer(final int number) {
-        return (number % 2 == 0) ? "yes" : "no";
+    private boolean isEven(final int number) {
+        return number % 2 == 0;
     }
 }

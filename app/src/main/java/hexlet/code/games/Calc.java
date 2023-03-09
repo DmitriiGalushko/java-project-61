@@ -34,7 +34,8 @@ public class Calc extends Engine {
             return switch (operator) {
                 case "+" -> firstNumber + secondNumber;
                 case "-" -> firstNumber - secondNumber;
-                default -> firstNumber * secondNumber;
+                case "*" -> firstNumber * secondNumber;
+                default -> throw new RuntimeException("The input is wrong: " + operator);
             };
     }
 }
