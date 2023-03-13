@@ -5,7 +5,7 @@ import hexlet.code.Engine;
 public class Even {
     private static final int RANDOM_START = 0;
     private static final int RANDOM_BOUND = 100;
-    private static final String GAME_RULES = "Answer 'yes' if number is even, otherwise answer 'no'.";
+    private static final String GAME_RULES = "Answer 'yes' if the number is even, otherwise answer 'no'.";
 
     public static void startGame() {
         String[][] gameData = new String[Engine.GAME_ROUNDS][2];
