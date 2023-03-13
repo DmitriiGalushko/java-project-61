@@ -1,11 +1,10 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import java.util.Random;
 
 public class GCD {
+    private static final int RANDOM_START = 0;
     private static final int RANDOM_BOUND = 100;
-
     private static final String GAME_RULES = "Find the greatest common divisor of given numbers.";
 
     public static void startGame() {
@@ -13,9 +12,8 @@ public class GCD {
 
         for (var i = 0; i < Engine.GAME_ROUNDS; i++) {
             int correctAnswer;
-            Random random = new Random();
-            var firstNumber = random.nextInt(RANDOM_BOUND) + 1;
-            var secondNumber = random.nextInt(RANDOM_BOUND) + 1;
+            var firstNumber = Utils.generateNumber(RANDOM_START, RANDOM_BOUND);
+            var secondNumber = Utils.generateNumber(RANDOM_START, RANDOM_BOUND);
 
             gameData[i][0] = firstNumber + " " + secondNumber;
             correctAnswer = getGcd(firstNumber, secondNumber);

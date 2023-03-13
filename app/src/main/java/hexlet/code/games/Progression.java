@@ -1,28 +1,23 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
- import java.util.Random;
 
-public class Progression extends Engine {
+public class Progression {
+    private static final int RANDOM_START = 0;
     private static final int FIRST_NUMBER_BOUND = 100;
-
     private static final int MIN_PROGRESSION_LENGTH = 5;
-
     private static final int MAX_PROGRESSION_LENGTH = 10;
-
     private static final int MAX_PROGRESSION_STEP = 10;
-
     private static final String GAME_RULES = "What number is missing in the progression?";
 
     public static void startGame() {
         String[][] gameData = new String[Engine.GAME_ROUNDS][2];
 
         for (var i = 0; i < Engine.GAME_ROUNDS; i++) {
-            Random random = new Random();
-            var first = random.nextInt(FIRST_NUMBER_BOUND) + 1;
-            var step = random.nextInt(MAX_PROGRESSION_STEP) + 1;
-            var length = getRandomNumber(MIN_PROGRESSION_LENGTH, MAX_PROGRESSION_LENGTH + 1);
-            var index = random.nextInt(length - 1);
+            var first = Utils.generateNumber(RANDOM_START, FIRST_NUMBER_BOUND);
+            var step = Utils.generateNumber(RANDOM_START, MAX_PROGRESSION_STEP);
+            var length = Utils.generateNumber(MIN_PROGRESSION_LENGTH, MAX_PROGRESSION_LENGTH);
+            var index = Utils.generateNumber(RANDOM_START, length - 1);
 
             String[] progression = makeProgression(first, step, length);
             gameData[i][1] = progression[index];
@@ -41,10 +36,5 @@ public class Progression extends Engine {
         }
 
         return progression;
-    }
-
-    public static int getRandomNumber(int min, int max) {
-        Random random = new Random();
-        return random.nextInt(max - min) + min;
     }
 }
