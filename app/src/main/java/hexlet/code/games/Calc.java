@@ -15,7 +15,7 @@ public class Calc {
             var secondNumber = Utils.generateNumber(RANDOM_START, RANDOM_BOUND);
             String[] operators = {"+", "-", "*"};
             var operatorBound = operators.length;
-            var operatorIndex = Utils.generateNumber(RANDOM_START, operatorBound);
+            var operatorIndex = Utils.generateNumber(RANDOM_START, operatorBound - 1);
             var randomOperator = operators[operatorIndex];
 
             gameData[i][0] = firstNumber + " " + randomOperator + " " + secondNumber;
